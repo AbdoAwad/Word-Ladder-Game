@@ -14,8 +14,8 @@ def index():
 @app.route('/', methods=['POST'])
 def getInput():
 
-    word1 = (request.form['firstWord']).strip()
-    word2 = (request.form['lastWord']).strip()
+    word1 = (request.form['firstWord']).strip().lower()
+    word2 = (request.form['lastWord']).strip().lower()
 
     if ((word1 in Graph and word2 in Graph) and (len(word1) != len(word2))):
         return render_template('resultFailure.html', msg='The two words have different lengths')
